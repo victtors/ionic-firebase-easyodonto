@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { PacientesPage } from '../pages/pacientes/pacientes';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,6 +15,7 @@ import { CadastroPacientePage } from '../pages/cadastro-paciente/cadastro-pacien
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ToastrServiceProvider } from '../providers/toastr-service/toastr-service';
 import { EditarPage } from '../pages/editar/editar';
+import { BrMaskerModule } from 'brmasker-ionic-3';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ import { EditarPage } from '../pages/editar/editar';
     HomePage,
     CadastroPacientePage,
     ListPage,
+    PacientesPage,
     EditarPage
   ],
   imports: [
     BrowserModule,
+    BrMaskerModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyD_j_ACa48K46VVJdINWED2LGFUxOZ9Y4s",
@@ -42,6 +46,7 @@ import { EditarPage } from '../pages/editar/editar';
     HomePage,
     CadastroPacientePage,
     ListPage,
+    PacientesPage,
     EditarPage
   ],
   providers: [

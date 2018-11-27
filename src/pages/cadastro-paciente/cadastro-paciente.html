@@ -22,7 +22,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-input required type="text" placeholder="CPF" [(ngModel)]="paciente.cpf"></ion-input>
+        <ion-input required type="text" placeholder="CPF" [brmasker]="{mask:'999.999.999-99', len:14}" [(ngModel)]="paciente.cpf"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -39,6 +39,10 @@
 
       <ion-item>
         <ion-input required type="text" placeholder="E-mail" [(ngModel)]="paciente.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-input required type="text" placeholder="Contato" [brmasker]="{phone: true}" [(ngModel)]="paciente.contato"></ion-input>
       </ion-item>
 
       <ion-item>

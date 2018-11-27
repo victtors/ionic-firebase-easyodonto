@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { BrMaskerModule } from 'brmasker-ionic-3';
 
 /*
   Generated class for the FirebaseServiceProvider provider.

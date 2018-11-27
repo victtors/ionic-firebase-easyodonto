@@ -40,6 +40,10 @@
         <ion-item>
           <ion-input required type="text" placeholder="E-mail" [(ngModel)]="paciente.email"></ion-input>
         </ion-item>
+
+        <ion-item>
+            <ion-input required type="text" placeholder="Contato" [brmasker]="{phone: true}" [(ngModel)]="paciente.contato"></ion-input>
+        </ion-item>
   
         <ion-item>
          <button ion-button full (click)="update(paciente)"> Salvar Alterações </button>

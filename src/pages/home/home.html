@@ -8,13 +8,23 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Lista de Pacientes</h3>
+  <h3>Login</h3>
 
-  <button ion-button secondary (click)="add()">Cadstrar Paciente</button>
   <ion-list>
-      <button ion-item *ngFor="let p of pacientes|async" (click)="goToSingle(p)">
-        {{ p.nome }} <br>
-        {{ p.cpf }}
-      </button>
-  </ion-list>
+
+    <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button full (click)="login()"> Entrar </button>
+    </ion-item>
+    
+    </ion-list>
 </ion-content>

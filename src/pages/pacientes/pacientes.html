@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Pacientes</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <h3>Lista de Pacientes</h3>
+    
+      <button ion-button secondary (click)="add()">Cadstrar Paciente</button>
+      <ion-list>
+          <button ion-item *ngFor="let p of pacientes|async" (click)="goToSingle(p)">
+            <b>Nome:</b> {{ p.nome }}<br>
+            <b>CPF:</b> {{ p.cpf }} <br>
+            <b>Contato:</b>{{ p.contato }}
+          </button>
+      </ion-list>
+  </ion-content>
