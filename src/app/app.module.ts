@@ -12,13 +12,16 @@ import { AngularFireModule } from 'angularfire2';
 import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
 import { CadastroPacientePage } from '../pages/cadastro-paciente/cadastro-paciente';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ToastrServiceProvider } from '../providers/toastr-service/toastr-service';
+import { EditarPage } from '../pages/editar/editar';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     CadastroPacientePage,
-    ListPage
+    ListPage,
+    EditarPage
   ],
   imports: [
     BrowserModule,
@@ -38,13 +41,15 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     MyApp,
     HomePage,
     CadastroPacientePage,
-    ListPage
+    ListPage,
+    EditarPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseServiceProvider
+    FirebaseServiceProvider,
+    ToastrServiceProvider
   ]
 })
 export class AppModule {}
