@@ -8,27 +8,43 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AngularFireModule } from 'angularfire2';
+import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+import { CadastroPacientePage } from '../pages/cadastro-paciente/cadastro-paciente';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    CadastroPacientePage,
     ListPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyD_j_ACa48K46VVJdINWED2LGFUxOZ9Y4s",
+      authDomain: "easyodonto-ccb4f.firebaseapp.com",
+      databaseURL: "https://easyodonto-ccb4f.firebaseio.com",
+      projectId: "easyodonto-ccb4f",
+      storageBucket: "easyodonto-ccb4f.appspot.com",
+      messagingSenderId: "764649080199"
+    }),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
+    CadastroPacientePage,
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseServiceProvider
   ]
 })
 export class AppModule {}
