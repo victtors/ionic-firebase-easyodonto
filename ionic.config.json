@@ -1,0 +1,7 @@
+{
+  "name": "easyOdondo-firebase",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
