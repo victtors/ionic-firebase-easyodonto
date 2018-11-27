@@ -30,7 +30,11 @@
       </ion-item>
 
       <ion-item>
-        <ion-input required type="text" placeholder="Nacionalidade" [(ngModel)]="paciente.nacionalidade"></ion-input>
+          <ion-label color="dark" stacked></ion-label>
+          <ion-select [(ngModel)]="paciente.nacionalidade" placeholder="Nacionalidade">
+            <ion-option value="Brasileiro">Brasileiro</ion-option>
+            <ion-option value="Estrangeiro">Estrangeiro</ion-option>
+          </ion-select>
       </ion-item>
 
       <ion-item>

@@ -16,6 +16,10 @@ export class FirebaseServiceProvider {
     console.log('Hello FirebaseServiceProvider Provider');
   }
 
+  getAll(){
+    return this.db.list('pacientes').valueChanges();
+  }
+
   save(paciente: any){
     this.db.list('pacientes')
             .push(paciente)
