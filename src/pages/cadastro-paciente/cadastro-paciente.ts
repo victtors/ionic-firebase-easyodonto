@@ -6,12 +6,6 @@ import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-ser
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { PacientesPage } from '../pacientes/pacientes';
 
-/**
- * Generated class for the CadastroPacientePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

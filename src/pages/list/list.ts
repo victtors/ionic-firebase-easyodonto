@@ -5,6 +5,9 @@ import { FirebaseServiceProvider } from '../../providers/firebase-service/fireba
 import { convertUrlToSegments } from 'ionic-angular/umd/navigation/url-serializer';
 import { EditarPage } from '../editar/editar';
 import { BrMaskerModule } from 'brmasker-ionic-3';
+import { storage } from 'firebase';
+
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-list',
@@ -16,11 +19,12 @@ export class ListPage {
 
   constructor(
     public navCtrl: NavController,
-    public dbService: FirebaseServiceProvider
+    public dbService: FirebaseServiceProvider,
     ) {
 
       this.pacientes = this.dbService.getAll();
     }
+    
 
   add(){
     this.navCtrl.push(CadastroPacientePage);

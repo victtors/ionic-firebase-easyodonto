@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -21,6 +22,9 @@ import { EditarPage } from '../pages/editar/editar';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 
 import { AuthServiceProvider } from '../providers/auth/auth-service';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Camera } from '@ionic-native/camera';
+
 
 
 @NgModule({
@@ -61,10 +65,14 @@ import { AuthServiceProvider } from '../providers/auth/auth-service';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseServiceProvider,
     ToastrServiceProvider,
-    AuthServiceProvider
+    AuthServiceProvider,
+    FingerprintAIO,
+    ImagePicker,
+
   ]
 })
 export class AppModule {}

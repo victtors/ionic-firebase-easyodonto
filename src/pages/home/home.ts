@@ -9,6 +9,8 @@ import { PacientesPage } from '../pacientes/pacientes';
 import { AuthServiceProvider } from '../../providers/auth/auth-service';
 import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-service';
 
+import { FingerprintAIO ,FingerprintOptions} from '@ionic-native/fingerprint-aio';
+
 import { User } from '../../providers/auth/user';
 
 
@@ -18,6 +20,7 @@ import { User } from '../../providers/auth/user';
 })
 export class HomePage {
 
+  fingerprintOptions : FingerprintOptions;
   private pacientes;
   user: User = new User();
 
@@ -25,11 +28,28 @@ export class HomePage {
     public navCtrl: NavController,
     public dbService: FirebaseServiceProvider,
     private authService: AuthServiceProvider,
-    public toastrService: ToastrServiceProvider
+    public toastrService: ToastrServiceProvider,
+    private fingerAuth: FingerprintAIO
     ) {
 
       this.pacientes = this.dbService.getAll();
     }
+
+    public showFingerprintAuthDlg(){
+      this.fingerprintOptions = {
+          clientId: 'fingerprint-Demo',
+          clientSecret: 'password', //Only necessary for Android
+          disableBackup:true  //Only for Android(optional)
+      }
+      this.fingerAuth.isAvailable().then(result =>{
+      if(result === "OK")
+      {
+          this.fingerAuth.show(this.fingerprintOptions)
+          .then((result: any) => console.log(result))
+          .catch((error: any) => console.log(error));
+      }
+      });
+  }
 
     signIn() {
       this.authService.signIn(this.user)
@@ -41,5 +61,7 @@ export class HomePage {
                                         .present();
         });
     }
+
+    
 
 }

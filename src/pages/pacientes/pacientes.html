@@ -10,7 +10,8 @@
   <ion-content padding>
       <h3>Lista de Pacientes</h3>
     
-      <button ion-button secondary (click)="add()">Cadstrar Paciente</button>
+      <button ion-button secondary (click)="add()">Cadastrar Paciente</button><br>
+      <button ion-button (click)="takePhoto()"> Anexo </button>
       <ion-list>
           <button ion-item *ngFor="let p of pacientes|async" (click)="goToSingle(p)">
             <b>Nome:</b> {{ p.nome }}<br>
