@@ -6,6 +6,11 @@ import { convertUrlToSegments } from 'ionic-angular/umd/navigation/url-serialize
 import { EditarPage } from '../editar/editar';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { PacientesPage } from '../pacientes/pacientes';
+import { AuthServiceProvider } from '../../providers/auth/auth-service';
+import { ToastrServiceProvider } from '../../providers/toastr-service/toastr-service';
+
+import { User } from '../../providers/auth/user';
+
 
 @Component({
   selector: 'page-home',
@@ -14,17 +19,27 @@ import { PacientesPage } from '../pacientes/pacientes';
 export class HomePage {
 
   private pacientes;
+  user: User = new User();
 
   constructor(
     public navCtrl: NavController,
-    public dbService: FirebaseServiceProvider
+    public dbService: FirebaseServiceProvider,
+    private authService: AuthServiceProvider,
+    public toastrService: ToastrServiceProvider
     ) {
 
       this.pacientes = this.dbService.getAll();
     }
 
-    login() {
-      this.navCtrl.setRoot(PacientesPage);
+    signIn() {
+      this.authService.signIn(this.user)
+        .then(() => {
+          this.navCtrl.setRoot(PacientesPage);
+        })
+        .catch((error: any) => {
+          let toast = this.toastrService.show('Usuário/Senha não cadastrado!', 3000)
+                                        .present();
+        });
     }
 
 }
